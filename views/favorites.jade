@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	div
+		br
+		br
+		br
+		br
+	div
+		table.table1
+			tr
+				td
+				td
+				td
+				td
+				for favorite in favorites	
+					tr.posts
+						td
+						td
+						td
+							h4= favorite.contents
+							h6.postdetails1= favorite.date
+							h6.postdetails2= favorite.username
+						td
+
+

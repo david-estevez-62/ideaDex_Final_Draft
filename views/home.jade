@@ -1,0 +1,52 @@
+extends layout
+
+
+block content
+	div
+		h3.headline(style="position:absolute;top:85px;") Welcome, #{user.username}
+		img.gravitar(src="#{user.imageUrl}", height="200px", width="200px" style="position:absolute;top:180px;")
+		div#postDiv
+			form#addPost(action="/ideaPosted", method="post", enctype="multipart/form-data", placeholder='Add your ideas here...')
+				input#postinput(type="text", name="contents" placeholder="Add your ideas here...")
+				div.privacy(class="onoffswitch", id='privacytog')
+					input(type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked)
+					label(class="onoffswitch-label" for="myonoffswitch")
+						span(class="onoffswitch-inner")
+						span(class="onoffswitch-switch")
+				<div style="height:0px;overflow:hidden">
+				<input type="file" id="fileInput"  name="fileInput" accept="image/*">
+				</div>
+				input#submit1(type="submit", value="Post")
+			img.uploadTake(src="/img/uploadpicIcon.png", id="upload", width="25px")
+		div#overlay
+		div#showPostdiv(style="background:grey;height:40px;width:125px;position:fixed;bottom:26px;left:22px;color:white;font-size:40px;z-index:5;")
+			h2 POST
+
+		div.postContainer
+			table.ideaTable
+				tr
+					td
+					td
+					td(style="width:900px")
+					td
+				for post in posts		
+					tr.posts
+						td
+						td
+						td
+							-if (post.contents[0].substr(post.contents[0].length-3) === 'jpg' || post.contents[0].substr(post.contents[0].length-3) === 'png' || post.contents[0].substr(post.contents[0].length-4) === 'jpeg')
+								img(src=post.contents width="400px")
+								h6.postdetails1= post.date
+								div.delete
+									h6.postdetails3 Remove
+							-else
+								h4= post.contents
+								h6.postdetails1= post.date
+								div.delete(data-postid=post._id)
+									h6.postdetails3 Remove
+						td
+							a.delete(href="#", data-postid=post._id) Remove
+		
+
+	
+	

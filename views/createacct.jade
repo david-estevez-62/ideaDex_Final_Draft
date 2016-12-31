@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset="utf-8")
+		link(rel="stylesheet", type="text/css", href="main.css")
+		link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+		link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+		title IdeaDex
+	
+	body.container
+				if (error.length > 0)
+					.error
+						.errorflag
+							span.fa.fa-warning
+							span  #{error}
+			div.login
+				div
+					img.logoimg(src="/img/ideadexlogo.png")
+					form#createacct(action="/signup", method="post")
+						div
+							input.loginusername(type="text", name="username", placeholder="username")
+						div
+							input.loginpassword1(type="password", name="password", placeholder="password")
+						div
+							input.loginpassword2(type="password", name="password-verify" placeholder="password")
+						p
+						p
+							input#togglePw(type="button" value="Show pw")
+						span.status
+						input.createacct(type="submit", value="Create Acct", class="btn btn-default")
+
+		block content
+			script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+			script(src="/main.js")
+			script(src="/client.js")
+
+
+
+		

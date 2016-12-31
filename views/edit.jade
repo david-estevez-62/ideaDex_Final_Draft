@@ -1,0 +1,53 @@
+extends layout
+
+block content
+			.outer
+				.middle
+					.inner
+						h3 Settings:
+						form#savesettings
+							br
+							span 
+								b Change Username   |   
+								a(href="/"+user.username+"/changeUsername") Reset Here
+							br
+							hr
+							br
+							span 
+								b Change Password   |   
+								a(href="/"+user.username+"/changePassword") Reset Here
+							br
+							hr
+							br
+							label Upload or Add Image Destination
+							br
+							form(action="/uploadProfilepic", method="post", enctype="multipart/form-data")
+								input(type="file", name="imageUrl")
+								input(type="submit")
+							br
+							hr
+							br
+							label Upload or Add Image Destination
+							br
+							form(action="/changeProfpic", method="post")
+								input(type="text", name="imageUrl")
+								input(type="submit")
+							hr
+							label Theme
+							select(id="themeSelect")
+								-if(user.theme == 'default')
+									option(value="default" selected) default
+									option(value="dark") dark
+									option(value="light") light
+								-if(user.theme == 'dark')
+									option(value="default") default
+									option(value="dark" selected) dark
+									option(value="light") light
+								-if(user.theme == 'light')
+									option(value="default") default
+									option(value="dark") dark
+									option(value="light" selected) light
+
+
+
+		

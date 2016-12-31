@@ -1,0 +1,43 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset="utf-8")
+		link(rel="stylesheet", type="text/css", href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.0/bootstrap-social.css")
+		link(rel="stylesheet", type="text/css", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+		link(rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
+		link(rel="stylesheet", type="text/css", href="main.css")
+
+		title IdeaDex
+
+	body.container
+				
+			div.login
+				img.logoimg(src="/img/ideadexlogo.png")
+				div
+				
+					form(action="/login", method="post")
+						div
+							input.loginusername(type="text", name="username", placeholder="username")
+						div
+							input.loginpassword(type="password", name="password", placeholder="password")
+						p
+							input.loginbtn1(type="submit", value="Sign in", placeholder='Sign in', class="btn btn-default")
+				p
+				div
+					a.signup(href="/createacct" class="btn btn-default") Sign Up
+				div.forgotbtn
+					a(href="/changeUsername") Reset Username
+				div.forgotbtn
+					a(href="/changePassword") Reset Password
+				div
+					a#facebooksignin(class="btn btn-block btn-social btn-facebook") Sign in with Facebook
+						i(class="fa fa-facebook") 
+				div
+					a#googlesignin(class="btn btn-block btn-social btn-google") Sign in with Google
+						i(class="fa fa-google") 
+			//- h2 Persons Ideas
+			//- ul#idea-list
+			//- 	for idea in Ideas
+			//- 		li.idea(data-id="#{idea._id")
+			//- 			strong = idea.category
+			//- 			a.
